@@ -636,6 +636,7 @@ def open_file_input(cli_parsed):
     if len(files) > 0:
         print('\n[*] Done! Report written in the {0} folder!').format(
             cli_parsed.d)
+        """"
         print 'Would you like to open the report now? [Y/n]',
         while True:
             try:
@@ -646,6 +647,7 @@ def open_file_input(cli_parsed):
                     return strtobool(response)
             except ValueError:
                 print "Please respond with y or n",
+        """
     else:
         print '[*] No report files found to open, perhaps no hosts were successful'
         return False
