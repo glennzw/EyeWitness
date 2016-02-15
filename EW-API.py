@@ -9,10 +9,17 @@ import glob
 import os
 
 TMP="/tmp/"
-SAVEDIR = "/var/www/html/"
+SAVEDIR = "/root/EyeWitness/screenies/"
 EW_EXE = "/root/EyeWitness/EyeWitness.py"
 
 app = Flask(__name__)
+
+
+@app.route('/getImage/<image>')
+def getImage(image):
+    if not image or image == "":
+        return """{"status" : "error", "reason" : "Bad URL"}"""
+    return send_file(SAVEDIR + filename, mimetype='image/gif')
 
 @app.route('/snapshotSite/<url>')
 def snapshot(url):
